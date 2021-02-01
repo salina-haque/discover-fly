@@ -138,7 +138,7 @@
 
                 const taxAmount = totalPrice * 0.1;
                 document.getElementById('tax-amount').innerText = taxAmount;
-                
+
                 const grandTotal = totalPrice + taxAmount;
                 document.getElementById('grand-total').innerText = grandTotal;
             }
@@ -150,8 +150,14 @@
             }
             //book now btn event
             document.getElementById('book-now').addEventListener('click', function () {
-                alert('Your ticket is successfully booked! Your total cost is $' +
-                    document.getElementById('grand-total').innerText);
+                const grandTotal = document.getElementById('grand-total').innerText;
+                if (grandTotal>0){
+                    alert('Your ticket is successfully booked! Your total cost is $' +
+                    grandTotal);
+                }
+                else{
+                    alert('You must book at-least one ticket!');
+                }
             })
         </script>
 </body>
